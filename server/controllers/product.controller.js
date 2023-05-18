@@ -8,6 +8,7 @@ module.exports = {
     // CRUD!
     // CREATE
     createProduct: (req, res) => {
+        console.log(req.body)
         Product.create(req.body)
             .then(product => res.json(product))
             .catch(err => res.json(err));

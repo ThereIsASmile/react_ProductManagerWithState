@@ -6,16 +6,16 @@ const cors = require('cors');
 app.use(cors());
 // cross origin requests * The 2 above lines must remain together!
 
+// app section
+app.use(express.json())
+app.use(express.urlencoded({ extended: true}));
+// uses json and url encoded
+// app must be before require!
 
 // require section
 require('./config/mongoose.config');
 require('./routes/product.routes')(app);
 // import routes export! The app in the parantheses is for the module.exports =(app) => {}
-
-
-// app section
-app.use(express.json(), express.urlencoded({ extended: true}));
-// uses json and url encoded
 
 // app.get('/', (req, res) => {
 //     res.send('Hello World');

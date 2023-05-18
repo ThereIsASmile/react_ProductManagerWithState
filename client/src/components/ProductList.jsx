@@ -10,7 +10,7 @@ const ProductList = (props) => {
     // destructured props passed 
 
     useEffect(()=>{
-    	axios.get("http://localhost:8000/")
+    	axios.get("http://localhost:8000/api/product/get")
         // This needs to match the the axios route to call the getAllProducts function
         .then((res)=>{
             console.log(res.data);

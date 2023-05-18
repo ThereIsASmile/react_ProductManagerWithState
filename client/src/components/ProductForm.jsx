@@ -17,7 +17,9 @@ const ProductForm = (props) => {
        //prevent default behavior of the submit
        e.preventDefault();
        //make a post request to create a new person
-       axios.post('http://localhost:8000/', {
+       console.log("---------", title, price, description)
+       axios.post('http://localhost:8000/api/product/create', {
+        // api is needed on the end to post to api
            title,   
            //shortcut syntax for title: title
            price,     
@@ -38,8 +40,8 @@ const ProductForm = (props) => {
 
 
    return (
-       <div className="row">
-           <form className="col-md-6 offset-3 mt-4 bg-success text-light rounded p-2" onSubmit={onSubmitHandler}>
+
+           <form className="col-md-4 offset-3 mt-4 bg-success text-light rounded p-2" onSubmit={onSubmitHandler}>
            <h2>New Plant:</h2>
                <div className="form-group">
                    <label htmlFor="title">Plant Title:</label><br/>
@@ -58,7 +60,7 @@ const ProductForm = (props) => {
                </div>
                <button className="btn btn-warning mt-3">Add Plant</button>
            </form>
-       </div>
+
    )
 }
 

@@ -8,7 +8,7 @@ const Detail = (props) => {
     const {id} = useParams(); 
 
     useEffect(() => {
-        axios.get("http://localhost:8000/" + id)
+        axios.get("http://localhost:8000/api/product/get/" + id)
             .then( res => {
                 console.log(res.data);
                 setProduct(res.data);
@@ -24,6 +24,7 @@ const Detail = (props) => {
                 <li className="list-group-item">Price: ${product.price}</li>
                 <li className="list-group-item">{product.description}</li>
             </ul>
+            
         </div>
     );
 }

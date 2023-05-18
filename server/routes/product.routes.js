@@ -5,12 +5,12 @@ const ProductController = require('../controllers/product.controller');
 
 module.exports = (app) => {
     // app is needed in the parantheses because it matches in the server.js as the server object!
-    app.post('/', ProductController.createProduct);
-    app.get('/', ProductController.getAllProducts);
+    app.post('/api/product/create', ProductController.createProduct);
+    app.get('/api/product/get', ProductController.getAllProducts);
     // can be the same route when the HTTP verbs are different
-    app.get('/:id', ProductController.getOneProduct);
-    app.patch('/edit/:id', ProductController.updateProduct);
-    app.delete(':id', ProductController.deleteProduct); 
+    app.get('/api/product/get/:id', ProductController.getOneProduct);
+    app.patch('/api/product/edit/:id', ProductController.updateProduct);
+    app.delete('api/product/delete/:id', ProductController.deleteProduct); 
 }
 // These routes match the Axios call! These routes are for the API they do not match with the path for components to follow. This is just for the backend! DO not use these to view frontend page!
 
