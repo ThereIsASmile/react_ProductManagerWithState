@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import {useParams} from "react-router-dom";
+import {useParams, Link} from "react-router-dom";
 
 
 const Detail = (props) => {
@@ -18,7 +18,8 @@ const Detail = (props) => {
 
 
     return (
-        <div className="col-md-6 offset-3 rounded p-2">
+        <div className="col-md-6 offset-3 bg-success text-light rounded p-2">
+            <Link to="/">Home</Link>
             <ul className="list-group">
                 <li className="list-group-item h4 mb-0">{product.title}</li>
                 <li className="list-group-item">Price: ${product.price}</li>

@@ -4,8 +4,8 @@ import {Link} from 'react-router-dom';
 
 const ProductList = (props) => {
 
-    // const {removeFromDom, product, setProduct} = props;
-    const {product, setProduct} = props;
+    const {removeFromDom, product, setProduct} = props;
+    // const {product, setProduct} = props;
     // curly brackets make this an object?
     // destructured props passed 
 
@@ -22,6 +22,13 @@ const ProductList = (props) => {
     	})
 	}, []);
 
+    const deleteProduct = (productId) => {
+        axios.delete('http://localhost:8000/api/product/delete/' + productId)
+            .then(res => {
+                removeFromDom(productId)
+            })
+            .catch(err => console.log(err))
+    }
     
     return (
         <div className="col-md-6 offset-3 bg-success text-light rounded p-2">
@@ -30,16 +37,16 @@ const ProductList = (props) => {
             product.map((product, index) => {
             // product data is mapped to render each product by product._id
             return <div key={index}>
-            <p className="fs-4 mt-4">
+                <p className="fs-4 mt-4">
                     <Link to={`/${product._id}`} className="link-light"> {product.title} </Link>
                 </p>
-                {/* <p>
+                <p>
                     <Link to={"/edit/" + product._id}>Edit Product</Link>
-                </p>   */}
-                {/* <button className="btn btn-dark mt-3" onClick={(e)=>{deleteProduct(product._id)}}>Delete Item</button> */}
+                </p>  
+                <button className="btn btn-dark mt-3" onClick={(e)=>{deleteProduct(product._id)}}>Delete Product</button>
 
 
-        </div>
+            </div>
             })
         }
         </div>
@@ -49,18 +56,7 @@ export default ProductList;
 
 
 
-{/* <div>
-{product.map((product)=>{
-    return ( 
-        <div key={product._id}>
-            <p>{product.title}</p>
-            <p>{product.price}</p>
-            <p>{product.description}</p>
-        </div>
 
-    )})
-}
-</div> */}
 
 
     // the square brackets make it an array that state can iterate through

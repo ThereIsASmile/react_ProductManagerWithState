@@ -41,7 +41,7 @@ const ProductForm = (props) => {
 
    return (
 
-           <form className="col-md-4 offset-3 mt-4 bg-success text-light rounded p-2" onSubmit={onSubmitHandler}>
+           <form className="col-md-4 offset-3 mt-6 bg-success text-light rounded p-2" onSubmit={onSubmitHandler}>
            <h2>New Plant:</h2>
                <div className="form-group">
                    <label htmlFor="title">Plant Title:</label><br/>
